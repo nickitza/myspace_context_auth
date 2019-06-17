@@ -1,5 +1,5 @@
 import React from 'react'
-import axois from 'axios'
+import axios from 'axios'
 
 
 const AuthContext = React.createContext();
