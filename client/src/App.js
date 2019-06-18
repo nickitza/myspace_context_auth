@@ -5,6 +5,7 @@ import Home from "./components/Home";
 import Login from "./components/Login";
 import Navbar from "./components/Navbar";
 import NoMatch from "./components/NoMatch";
+import ProtectedRoute from './components/ProtectedRoute'
 import Register from "./components/Register";
 import { Route, Switch } from "react-router-dom";
 
@@ -14,7 +15,7 @@ const App = () => (
     <FetchUser>
       <Container>
         <Switch>
-          <Route exact path="/" component={Home} />
+          <ProtectedRoute exact path="/" component={Home} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
           <Route component={NoMatch} />
