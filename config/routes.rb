@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     resources :robots, only: [:index, :update]
+    get 'my_robots', to: 'robots#my_robots'
   end
 
 end

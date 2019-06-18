@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { Header, Card, Button, Image, Icon } from "semantic-ui-react";
+import { Divider, Header, Card, Button, Image, Icon } from "semantic-ui-react";
 
 class Home extends React.Component {
   state = { robots: [] };
@@ -63,6 +63,7 @@ class Home extends React.Component {
               </Button>
             </Card.Content>
           </Card>
+          <Divider />
           <Link to="/my_robots">
             <Button color="violet">Robots Who Rule</Button>
           </Link>

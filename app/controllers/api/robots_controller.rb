@@ -9,4 +9,8 @@ class Api::RobotsController < ApplicationController
     current_user.liked_robots<< params[:id].to_i  
     current_user.save
   end
+
+  def my_robots
+    render json: User.liked(current_user.liked_robots)
+  end
 end
