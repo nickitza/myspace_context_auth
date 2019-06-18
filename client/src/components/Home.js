@@ -21,32 +21,50 @@ class Home extends React.Component {
       return null;
     }
   };
+
+  unlike = (id) => {
+    const { robots, } = this.state
+    this.setState({robots: robots.filter( robot => robot.id !== id)})
+  }
+
+  like = (id) => {
+    const { robots, } = this.state
+    axios.put(`/api/robots/${id}`)
+    this.setState({ robots: robots.filter( robot => robot.id !== id)})
+  }
+
   render() {
     const robot = this.sample();
     if (robot) {
       return (
         <div>
           <br />
-          <Header as="h1">A Space For The Superior Machines</Header>
+          <Header as="h1" textAlign="center">A Space For The Superior Machines</Header>
           <br />
           <Card key={robot.id}>
             <Image src={robot.avatar} />
             <Card.Content>
               <Card.Header>{robot.name}</Card.Header>
               <Card.Description>Serial #: {robot.serial}</Card.Description>
-              <Card.Meta>Bio: {robot.bio}</Card.Meta>
+              <Card.Meta>Fav Quote: {robot.bio}</Card.Meta>
             </Card.Content>
             <Card.Content extra>
-              <Button color="red" icon basic>
-                <Icon name="thumbs down" />
+              <Button 
+              color="green" 
+              icon
+              onClick={() => this.like(robot.id)}>
+                <Icon name="cog" />
               </Button>
-              <Button color="green" icon basic>
-                <Icon name="thumbs up" />
+              <Button 
+              color="red" 
+              icon
+              onClick={() => this.unlike(robot.id)}>
+                <Icon name="cancel" />
               </Button>
             </Card.Content>
           </Card>
           <Link to="/my_robots">
-            <Button color="blue">Robots I Like</Button>
+            <Button color="violet">Robots Who Rule</Button>
           </Link>
         </div>
       );
