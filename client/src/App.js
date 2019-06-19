@@ -18,6 +18,7 @@ const App = () => (
         <Switch>
           <ProtectedRoute exact path="/" component={ Home } />
           <ProtectedRoute exact path="/my_robots" component={ LikedRobots} />
+          {/* <ProtectedRoute exact path="/my_robot/:user_id" component={ LikedRobots} /> */}
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
           <Route component={NoMatch} />

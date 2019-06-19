@@ -20,10 +20,16 @@ class LikedRobots extends React.Component {
             <Card key={robot.id}>
               <Image src = {robot.avatar} />
               <Card.Content>
-                <Divider />
                 <Card.Header>
                   { robot.name }
                 </Card.Header>
+                <Divider />
+                <Card.Meta>
+                  Serial: { robot.serial }
+                </Card.Meta>
+                <Card.Description>
+                  Fav Quote: { robot.bio }
+                </Card.Description>
               </Card.Content>
             </Card>
             ) }
