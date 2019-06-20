@@ -5,6 +5,7 @@ import Home from "./components/Home";
 import Login from "./components/Login";
 import Navbar from "./components/Navbar";
 import NoMatch from "./components/NoMatch";
+import Posts from "./components/Posts"
 import ProtectedRoute from './components/ProtectedRoute'
 import Register from "./components/Register";
 import { Route, Switch } from "react-router-dom";
@@ -18,6 +19,7 @@ const App = () => (
         <Switch>
           <ProtectedRoute exact path="/" component={ Home } />
           <ProtectedRoute exact path="/my_robots" component={ LikedRobots} />
+          <ProtectedRoute exact path="/posts" component={ Posts } />
           {/* <ProtectedRoute exact path="/my_robot/:user_id" component={ LikedRobots} /> */}
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />

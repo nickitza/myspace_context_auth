@@ -14,11 +14,19 @@ class Api::PostsController < ApplicationController
 
   def create
     post = current_user.posts.new(post_params)
+    if post.save
+      render json: post
+    else 
+      render json: {}
+    end
   end
 
   def update
     if @post.update(post_params)
       render json: @post
+    else
+      render json: {}
+    end
   end
 
   def destroy

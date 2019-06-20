@@ -52,20 +52,23 @@ class Home extends React.Component {
               <Button 
               color="green" 
               icon
-              onClick={() => this.like(robot.id)}>
-                <Icon name="cog" />
+              onClick={() => this.like(robot.id)}>Friend
+                {/* <Icon name="cog" /> */}
               </Button>
               <Button 
               color="red" 
               icon
-              onClick={() => this.unlike(robot.id)}>
-                <Icon name="cancel" />
+              onClick={() => this.unlike(robot.id)}>Ignore
+                {/* <Icon name="cancel" /> */}
               </Button>
             </Card.Content>
           </Card>
           <Divider />
           <Link to="/my_robots">
-            <Button color="violet">Robots Who Rule</Button>
+            <Button color="violet">See Your Robo-Friends</Button>
+          </Link>
+          <Link to="/posts">
+            <Button color="pink">View Your Posts</Button>
           </Link>
         </div>
       );

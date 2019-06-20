@@ -35,6 +35,10 @@ class LikedRobots extends React.Component {
             ) }
         </Card.Group>
         <Divider />
+        <Link to="/posts">
+            <Button color="pink">View Your Posts</Button>
+          </Link>
+
         <Link to="/">
           <Button color="grey">Back To All Bots</Button>
         </Link>
