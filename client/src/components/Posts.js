@@ -15,9 +15,9 @@ const Posts = (props) => {
     })
   }, [] )
 
-  const addPost = (post) => {
-    setPosts([...posts, post]) 
-  }
+  // const addPost = (post) => {
+  //   setPosts([...posts, post]) 
+  // }
 
   const deletePost = (id) => {
     axios.delete(`/api/posts/${id}`)
@@ -68,6 +68,11 @@ const Posts = (props) => {
           pathname: '/new-post'
         }}>
         <Button className='ui color2 button'>New Post</Button>
+        </Link>
+        <Link to={{
+          pathname: '/'
+        }}>
+        <Button className='ui color1 button'>Back To Explore</Button>
         </Link>
         <br/>
         <List>

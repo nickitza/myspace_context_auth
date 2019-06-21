@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { Divider, Header, Card, Button, Image, Icon } from "semantic-ui-react";
+import { Divider, Header, Card, Button, Image,  } from "semantic-ui-react";
 
 class Home extends React.Component {
   state = { robots: [] };

@@ -56,7 +56,7 @@ class Register extends React.Component {
             onChange={this.handleChange}
           />
           <Segment textAlign='center' basic>
-            <Button primary>Submit</Button>
+            <Button className='ui color2 button'>Register</Button>
           </Segment>
         </Form>
       </Segment>

@@ -1,6 +1,6 @@
 import React from 'react'
 import axios from 'axios'
-import { Card, Divider, Image, Button, } from 'semantic-ui-react'
+import { Card, Divider, Image, Button, Header} from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 
 class LikedRobots extends React.Component {
@@ -15,6 +15,8 @@ class LikedRobots extends React.Component {
     const { robots } = this.state
     return(
       <>
+      <Header as='h2'>Bot Friends </Header>
+      <Header as='h3'>with whom you can take over the world...</Header>
         <Card.Group itemsPerRow={3}>
           { robots.map( robot =>
             <Card key={robot.id}>
@@ -36,11 +38,11 @@ class LikedRobots extends React.Component {
         </Card.Group>
         <Divider />
         <Link to="/posts">
-            <Button className='ui color3 button'>View Your Posts</Button>
+            <Button className='ui color3 button'>View Your Wall</Button>
           </Link>
 
         <Link to="/">
-          <Button color="grey">Back To All Bots</Button>
+          <Button color="grey">Back To Explore</Button>
         </Link>
       </>
     )
