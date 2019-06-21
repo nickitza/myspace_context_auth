@@ -2,9 +2,11 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Header, List, Segment, Button } from 'semantic-ui-react'
 import PostForm from './PostForm'
+import {Link} from 'react-router-dom'
 
 const Posts = (props) => {
   const [posts, setPosts] = useState([])
+  const [post, setPost] = useState("")
 
   useEffect(() => {
     axios.get('/api/posts')
@@ -20,9 +22,23 @@ const Posts = (props) => {
   const deletePost = (id) => {
     axios.delete(`/api/posts/${id}`)
     .then(res => {
-      setPosts([posts.filter(post => post.id !== id), ])
+      setPosts(posts.filter(post => post.id !== id))
     })
-  debugger
+  }
+
+  const editPost = (id, post) => {
+    axios.put(`/api/posts/${id}`, post )
+      .then(res => {
+      setPosts(posts.map(post =>{
+          if (post.id === id)
+          return res.data
+        return post}))
+        })
+        setPost("")
+  }
+
+  const openForm = (post) => {
+    setPost(post)
   }
 
   const renderPosts = () => {
@@ -35,6 +51,10 @@ const Posts = (props) => {
       <Button onClick={() => deletePost(post.id)} size="mini" color="red" inverted>
         Delete Post
       </Button>
+      <Button onClick={() => openForm(post)} size="mini" >
+        Edit Post
+      </Button>
+      
       </Segment>
     ))
   }
@@ -44,11 +64,18 @@ const Posts = (props) => {
       <div>
         <Header as='h2'>My Robo Blog</Header>
         <br />
+        <Link to={{
+          pathname: '/new-post'
+        }}>
+        <Button>New Post</Button>
+        </Link>
+        <br/>
         <List>
           {renderPosts()}
         </List>
         <hr/>
-        <PostForm add={addPost} />
+        {post ? <PostForm editPost={editPost} post={post}/> : null}
+       {/* {post ? <PostForm editPost={editPost} post={post}/> : <PostForm add={addPost} />} */}
       </div>
     )
   }

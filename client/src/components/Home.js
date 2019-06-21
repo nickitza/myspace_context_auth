@@ -41,6 +41,7 @@ class Home extends React.Component {
           <br />
           <Header as="h1" textAlign="center">A Space For The Superior Machines</Header>
           <br />
+          <Header as="h3">Bots You Might Know: </Header>
           <Card key={robot.id}>
             <Image src={robot.avatar} />
             <Card.Content>
@@ -50,13 +51,13 @@ class Home extends React.Component {
             </Card.Content>
             <Card.Content extra>
               <Button 
-              color="green" 
+              className='ui color2 button'
               icon
               onClick={() => this.like(robot.id)}>Friend
                 {/* <Icon name="cog" /> */}
               </Button>
               <Button 
-              color="red" 
+              className='ui color1 button'
               icon
               onClick={() => this.unlike(robot.id)}>Ignore
                 {/* <Icon name="cancel" /> */}
@@ -65,10 +66,10 @@ class Home extends React.Component {
           </Card>
           <Divider />
           <Link to="/my_robots">
-            <Button color="violet">See Your Robo-Friends</Button>
+            <Button className='ui color2 button'>See Your Robo-Friends</Button>
           </Link>
           <Link to="/posts">
-            <Button color="pink">View Your Posts</Button>
+            <Button className='ui color3 button'>View Your Posts</Button>
           </Link>
         </div>
       );

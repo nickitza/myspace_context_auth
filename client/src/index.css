@@ -9,3 +9,18 @@ body {
 }
 
 
+
+.ui.color1.button {
+  background-color: #D4886A !important;
+  color: #fff;
+}
+.ui.color2.button {
+  background-color: #277554 !important;
+  color: #fff;
+}
+.ui.color3.button {
+  background-color: #983352 !important;
+  color: #fff;
+}
+
+

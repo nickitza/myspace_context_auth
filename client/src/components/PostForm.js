@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import axios from 'axios'
 import { Form, TextArea } from 'semantic-ui-react'
 
@@ -6,15 +6,28 @@ const PostForm = (props) => {
   const [title, setTitle] = useState("")
   const [body, setBody] = useState("")
    
+  useEffect ( () => {
+    if (props.post) {
+    setBody(props.post.body)
+    setTitle(props.post.title)
+  }
+  }, [])
+ 
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    axios.post('/api/posts', { title, body})
-    .then(res => {
-      props.add(res.data)
-    })
-    setTitle("")
-    setBody("")
+   if (props.post)
+   {
+    props.editPost(props.post.id, {title: title, body: body})
+   }
+   else {
+     e.preventDefault();
+     axios.post('/api/posts', { title, body})
+     .then(res => {
+       props.history.push('/posts')
+      })
+      setTitle("")
+      setBody("")
+    }
   }
   
   return (

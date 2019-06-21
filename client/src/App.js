@@ -10,6 +10,7 @@ import ProtectedRoute from './components/ProtectedRoute'
 import Register from "./components/Register";
 import { Route, Switch } from "react-router-dom";
 import LikedRobots from './components/LikedRobots'
+import PostForm from './components/PostForm'
 
 const App = () => (
   <>
@@ -20,6 +21,7 @@ const App = () => (
           <ProtectedRoute exact path="/" component={ Home } />
           <ProtectedRoute exact path="/my_robots" component={ LikedRobots} />
           <ProtectedRoute exact path="/posts" component={ Posts } />
+          <ProtectedRoute exact path="/new-post" component={ PostForm } />
           {/* <ProtectedRoute exact path="/my_robot/:user_id" component={ LikedRobots} /> */}
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
