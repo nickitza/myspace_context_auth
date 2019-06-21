@@ -48,11 +48,11 @@ const Posts = (props) => {
       <List.Description>
         {post.body}
       </List.Description>
-      <Button onClick={() => deletePost(post.id)} size="mini" color="red" inverted>
-        Delete Post
-      </Button>
       <Button onClick={() => openForm(post)} size="mini" >
         Edit Post
+      </Button>
+      <Button className='ui color3 button' onClick={() => deletePost(post.id)} size="mini">
+        Delete Post
       </Button>
       
       </Segment>
@@ -62,12 +62,12 @@ const Posts = (props) => {
 
     return(
       <div>
-        <Header as='h2'>My Robo Blog</Header>
+        <Header as='h2'>My Robo Wall </Header>
         <br />
         <Link to={{
           pathname: '/new-post'
         }}>
-        <Button>New Post</Button>
+        <Button className='ui color2 button'>New Post</Button>
         </Link>
         <br/>
         <List>

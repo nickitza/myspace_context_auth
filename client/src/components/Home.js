@@ -51,7 +51,7 @@ class Home extends React.Component {
             </Card.Content>
             <Card.Content extra>
               <Button 
-              className='ui color2 button'
+              className='ui color4 button'
               icon
               onClick={() => this.like(robot.id)}>Friend
                 {/* <Icon name="cog" /> */}
